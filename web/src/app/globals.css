@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme default {
+  --color-primary: #ec6d13;
+  --color-background-light: #f8f7f6;
+  --color-background-dark: #221810;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: #1a120b;
+  --foreground: #f8f7f6;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
