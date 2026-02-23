@@ -9,8 +9,8 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-2 text-primary">
-                            <span className="material-symbols-outlined text-[32px]">bakery_dining</span>
-                            <span className="text-slate-900 dark:text-white text-xl font-bold">Lumiere Bakery</span>
+                            <span className="material-symbols-outlined text-[32px]">restaurant</span>
+                            <span className="text-slate-900 dark:text-white text-xl font-bold">Lumiere Eatery</span>
                         </div>
                         <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                             Crafting memories one slice at a time. Visit our Johannesburg flagship store for a sensory experience like no other.
@@ -64,7 +64,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-slate-100 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-                    <p>© 2026 Lumiere Bakery. All rights reserved.</p>
+                    <p>© 2026 Lumiere Eatery. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link className="hover:text-slate-600 dark:hover:text-slate-200" href="/privacy">Privacy Policy</Link>
                         <Link className="hover:text-slate-600 dark:hover:text-slate-200" href="/terms">Terms of Service</Link>

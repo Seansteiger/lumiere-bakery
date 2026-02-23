@@ -39,8 +39,8 @@ export default async function Shop({
     <div className="px-4 md:px-10 py-12 mx-auto max-w-[1440px]">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-2">Our Bakery</h1>
-          <p className="text-slate-500 dark:text-slate-400">Everything baked fresh daily in Johannesburg.</p>
+          <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-2">Our Menu</h1>
+          <p className="text-slate-500 dark:text-slate-400">Everything prepared fresh daily in Johannesburg.</p>
         </div>
 
         <ShopFilters

@@ -48,10 +48,10 @@ export default async function Home() {
                 <span className="text-xs font-bold uppercase tracking-wider">Voted Best in JHB</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-                Experience the <span className="text-primary">Art</span> of Baking
+                Experience the <span className="text-primary">Art</span> of Cooking
               </h1>
               <p className="text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
-                Handcrafted with passion in the heart of Johannesburg. From our signature sourdough to bespoke wedding cakes, taste the difference of premium ingredients.
+                Prepared with passion in the heart of Johannesburg. From our signature burgers to bespoke hearty meals, taste the difference of premium ingredients.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link href="/book" className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold transition-transform active:scale-95 shadow-lg shadow-primary/25">
@@ -84,7 +84,7 @@ export default async function Home() {
             </div>
             {/* Image Side */}
             <div className="flex-1 relative min-h-[300px] lg:min-h-full">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSY6oGms-RUggAJh7_wHyunfBZoUGMM-obhe6G7HWOjuvprTcEOTx8eFYqVwH-d9vR4hRqtuo1JhsgIdeZ6j2eEgeaGW0vgWwelttNTZe5dg1Wkgdsgu-FrS8IaIkj_divj4ZEr-d_P9kebZVK8OgzXNMKXQbL30GNhaSLJK7bnpQuJj9XgEACMbnwjJTGjFjVsUaEdM4S-QHjqmYOHbrBaL7notbXN0EifYCxfdN3mAcE5fXhjJiV735ulewjuf4LcnaMA5WGrr0')" }}></div>
+              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200')" }}></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:hidden"></div>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default async function Home() {
             <div className="flex-shrink-0 relative hidden md:block">
               <div className="w-64 h-64 relative">
                 <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse"></div>
-                <img alt="Close up of a baker dusting sugar on pastries" className="relative z-10 w-full h-full object-cover rounded-full border-8 border-white dark:border-[#1a120b] shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVlKytWN1Xx3VyUIncQbhIdv2lLb2W_aNT9LOy_kgbzS5ptpa_zF53QiGHiKXiaJQiXFoWQtwTR0CS3QGjlHaCxvElI9Z7dp5_kiAfgFau_KxsK3toJcmJaVHbvgjImlBM4NSuLFU_a6O7I-Sh3_xf892RPH6AA94OACHhA7KUtfmdtc_3z1AUkGnj9FId5nzkn9nFhzp8tgkmkw-SbrHVuXfrCodfcK_WcEvtNmuSDXwBDwwReVr05txAXsTvGBptyrW-ist8YWE" />
+                <img alt="Close up of a chef preparing a gourmet meal" className="relative z-10 w-full h-full object-cover rounded-full border-8 border-white dark:border-[#1a120b] shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500" src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&q=80&w=800" />
               </div>
             </div>
           </div>

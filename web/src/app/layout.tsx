@@ -11,20 +11,20 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lumiere Bakery | Premium Artisan Bakes",
-  description: "Experience the art of baking in Johannesburg. Premium sourdough, handcrafted pastries, and bespoke wedding cakes.",
-  keywords: ["bakery", "johannesburg", "sourdough", "artisan", "pastries", "wedding cakes", "cafe", "Lumiere Bakery"],
+  title: "Lumiere Eatery | Premium Artisan Meals",
+  description: "Experience the art of cooking in Johannesburg. Premium meals, hearty burgers, and bespoke dining.",
+  keywords: ["eatery", "johannesburg", "meals", "artisan", "burgers", "dining", "restaurant", "Lumiere Eatery"],
   openGraph: {
-    title: "Lumiere Bakery | Premium Artisan Bakes",
-    description: "Experience the art of baking in Johannesburg. Premium sourdough, handcrafted pastries, and bespoke wedding cakes.",
-    url: "https://lumierebakery.co.za",
-    siteName: "Lumiere Bakery",
+    title: "Lumiere Eatery | Premium Artisan Meals",
+    description: "Experience the art of cooking in Johannesburg. Premium meals, hearty burgers, and bespoke dining.",
+    url: "https://lumiereeatery.co.za",
+    siteName: "Lumiere Eatery",
     images: [
       {
-        url: "https://lumierebakery.co.za/og-image.jpg",
+        url: "https://lumiereeatery.co.za/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Lumiere Bakery - Johannesburg",
+        alt: "Lumiere Eatery - Johannesburg",
       },
     ],
     locale: "en_ZA",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lumiere Bakery | Artisan Bakes in Jozi",
-    description: "Experience the art of baking in Johannesburg.",
-    images: ["https://lumierebakery.co.za/twitter-image.jpg"],
+    title: "Lumiere Eatery | Artisan Meals in Jozi",
+    description: "Experience the art of cooking in Johannesburg.",
+    images: ["https://lumiereeatery.co.za/twitter-image.jpg"],
   },
   robots: {
     index: true,

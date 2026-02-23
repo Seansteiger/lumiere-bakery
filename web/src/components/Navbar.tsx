@@ -26,9 +26,9 @@ export default function Navbar() {
                     {/* Logo & Brand */}
                     <Link href="/" className="flex items-center gap-4 flex-shrink-0">
                         <div className="size-8 text-primary">
-                            <span className="material-symbols-outlined text-[32px]">bakery_dining</span>
+                            <span className="material-symbols-outlined text-[32px]">restaurant</span>
                         </div>
-                        <h2 className="text-slate-900 dark:text-white text-xl font-bold tracking-tight hidden sm:block">Lumiere Bakery</h2>
+                        <h2 className="text-slate-900 dark:text-white text-xl font-bold tracking-tight hidden sm:block">Lumiere Eatery</h2>
                     </Link>
 
                     {/* Search Bar (Hidden on mobile, visible on tablet+) */}

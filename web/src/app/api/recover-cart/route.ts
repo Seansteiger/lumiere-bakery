@@ -33,9 +33,9 @@ export async function POST(request: Request) {
         /*
         for (const cart of abandonedCarts) {
             await resend.emails.send({
-                from: 'hello@lumierebakery.co.za',
+                from: 'hello@lumiereeatery.co.za',
                 to: cart.expand.user.email,
-                subject: 'Did you forget something sweet? 🧁',
+                subject: 'Did you forget a meal? 🍔',
                 react: AbandonedCartEmailTemplate({ cartItems: cart.items })
             });
             
