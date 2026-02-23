@@ -139,11 +139,6 @@ export default function CheckoutPage() {
             </div>
         );
     }
-
-    const subtotal = getCartTotal();
-    const deliveryFee = formData.fulfillment === 'delivery' ? 50.00 : 0.00;
-    const total = subtotal + deliveryFee;
-
     return (
         <div className="bg-[#fcf9f5] dark:bg-[#150f0a] min-h-screen pb-20">
             <div className="px-4 md:px-10 py-10 md:py-12 mx-auto max-w-[1440px]">
