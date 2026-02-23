@@ -24,9 +24,62 @@ export default function CheckoutPage() {
         time: ''
     });
 
+    const [availableTimes, setAvailableTimes] = useState<string[]>([]);
+
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    // Generate dynamic time slots when date changes
+    useEffect(() => {
+        if (!formData.date) {
+            setAvailableTimes([]);
+            return;
+        }
+
+        const slots: string[] = [];
+        const selectedDate = new Date(formData.date);
+        const today = new Date();
+        const isToday = selectedDate.toDateString() === today.toDateString();
+
+        // Business hours: 09:00 to 19:00
+        const startHour = 9;
+        const endHour = 19;
+
+        // Prep time: 45 minutes
+        const prepTimeMs = 45 * 60 * 1000;
+        const earliestSlotTime = new Date(today.getTime() + prepTimeMs);
+
+        for (let hour = startHour; hour <= endHour; hour++) {
+            for (let min of [0, 30]) {
+                const slotDate = new Date(selectedDate);
+                slotDate.setHours(hour, min, 0, 0);
+
+                if (isToday) {
+                    if (slotDate > earliestSlotTime) {
+                        const timeString = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+                        slots.push(timeString);
+                    }
+                } else {
+                    const timeString = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+                    slots.push(timeString);
+                }
+            }
+        }
+
+        setAvailableTimes(slots);
+
+        // Clear selected time if it's no longer available
+        if (formData.time && !slots.includes(formData.time)) {
+            setFormData(prev => ({ ...prev, time: '' }));
+        }
+
+    }, [formData.date]);
+
+    // Derived cart totals
+    const subtotal = getCartTotal();
+    const deliveryFee = formData.fulfillment === 'delivery' ? 50 : 0;
+    const total = subtotal + deliveryFee;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -58,9 +111,8 @@ export default function CheckoutPage() {
 
             await pb.collection('orders').create(payload);
 
-            alert('Checkout successful! Order saved to database.');
             clearCart();
-            router.push('/');
+            window.location.href = `/checkout/success?id=${fakeYocoId}`;
         } catch (error) {
             console.error('Failed to save order:', error);
             alert('An error occurred while placing your order. Please try again.');
@@ -162,16 +214,15 @@ export default function CheckoutPage() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Select Date *</label>
-                                    <input required type="date" className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" value={formData.date} onChange={e => setFormData({ ...formData, date: e.target.value })} />
+                                    <input required type="date" min={new Date().toISOString().split('T')[0]} className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" value={formData.date} onChange={e => setFormData({ ...formData, date: e.target.value })} />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Select Time *</label>
-                                    <select required className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" value={formData.time} onChange={e => setFormData({ ...formData, time: e.target.value })}>
-                                        <option value="" disabled>Choose a slot</option>
-                                        <option value="09:00 AM - 10:00 AM">09:00 AM - 10:00 AM</option>
-                                        <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                                        <option value="12:00 PM - 14:00 PM">12:00 PM - 14:00 PM</option>
-                                        <option value="15:00 PM - 17:00 PM">15:00 PM - 17:00 PM</option>
+                                    <select required disabled={!formData.date || availableTimes.length === 0} className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all disabled:opacity-50" value={formData.time} onChange={e => setFormData({ ...formData, time: e.target.value })}>
+                                        <option value="" disabled>{!formData.date ? "Select a date first" : availableTimes.length === 0 ? "No slots available today" : "Choose a time"}</option>
+                                        {availableTimes.map(slot => (
+                                            <option key={slot} value={slot}>{slot}</option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>
